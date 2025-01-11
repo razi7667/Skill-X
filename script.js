@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+
+    // Toggle dropdown menu on click
+    dropdownToggle.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default link behavior
+        dropdown.classList.toggle('open');
+    });
+
+    // Close the dropdown if clicking anywhere outside of it
+    document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+});
+
+
 function toggleMenu() {
     const nav = document.querySelector('header nav ul');
     nav.classList.toggle('show');

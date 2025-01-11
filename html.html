@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Course Timeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="course-body">
+    <!-- Header -->
+    <header>
+        <div class="logo">Skill-X</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Course<span class="dropdown-arrow">&#9662;</span> <!-- Dropdown arrow --></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="html.html">HTML</a></li>
+                        <li><a href="course2.html">CSS</a></li>
+                        <li><a href="course3.html">JavaScript</a></li>
+                        <li><a href="course3.html">React JS</a></li>
+                        <li><a href="course3.html">C Language</a></li>
+                        <li><a href="course3.html">AI, ML & Data Science</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      </header>
+    <!-- Timeline Section -->
+    <section class="timeline">
+    <h2>Course Timeline</h2>
+    <div id="timeline-container" class="timeline-container">
+      <!-- Timeline content dynamically fetched from Google Sheets will go here -->
+    </div>
+  </section>
+
+  <!-- Popup Container (Initially hidden) -->
+<div id="task-popup" class="popup">
+    <div class="popup-content">
+        <span id="popup-close" class="popup-close">&times;</span>
+        <h3 id="popup-title"></h3>
+        <p id="popup-description"></p>
+    </div>
+</div>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2025 Skill-X. All rights reserved.</p>
+      </footer>
+</body>
+</html>

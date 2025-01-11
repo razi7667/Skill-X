@@ -69,6 +69,89 @@
     cursor: pointer;
   }
   
+/* Base Styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0px;
+}
+
+li {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  padding: 10px 15px;
+  color: #333;
+}
+
+/* Dropdown Arrow */
+.dropdown-arrow {
+  margin-left: 10px; /* Space between text and arrow */
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f4f9fd;
+  border: 1px solid #ddd;
+  display: none; /* Hidden by default */
+  list-style: none;
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Ensure consistent width */
+}
+
+.dropdown-menu li {
+  padding: 0px 0px;
+}
+
+.dropdown-menu li a {
+  color: #333;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
+/* Dropdown Open Style */
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column; /* Stack the menu vertically */
+      align-items: flex-start;
+  }
+
+  li {
+      width: 100%; /* Take full width in mobile view */
+  }
+
+  .dropdown-menu {
+      position: relative; /* Adjust for mobile */
+      top: 0;
+      left: 0;
+      width: 100%; /* Full width for mobile view */
+      box-shadow: none; /* Remove shadow for simplicity */
+  }
+
+  .dropdown-menu li {
+      padding: 10px; /* Add more padding for better touch experience */
+  }
+}
+
   /* Banner Styling */
   .banner {
     display: flex;
@@ -317,6 +400,18 @@
       header nav ul.show {
         display: flex;
       }
+
+      .dropdown-menu {
+        position: relative; /* Adjust for mobile */
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width for mobile view */
+        box-shadow: none; /* Remove shadow for simplicity */
+    }
+
+    .dropdown-menu li {
+        padding: 0px 10px; /* Add more padding for better touch experience */
+    }
     }
 
     #timeline-container {
