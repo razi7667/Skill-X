@@ -381,6 +381,7 @@ a {
         background-color: #ffffff;
         width: 100%;
         padding: 20px;
+        z-index: 800;
       }
     
       header nav ul li {
