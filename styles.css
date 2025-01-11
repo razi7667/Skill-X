@@ -1,0 +1,397 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f9fd; /* Light background color */
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s ease;
+    overflow-y: hidden;
+  }
+
+  .course-body {
+    overflow-y: scroll;
+  }
+  
+  
+  /* Header */
+  header {
+    background-color: #010101; /* Dark black header */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease;
+  }
+  
+  header .logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff; /* Bright blue logo */
+    transition: color 0.3s ease;
+  }
+  
+  header .logo:hover {
+    color: #2baffc;
+  }
+  
+  header nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  header nav ul li {
+    margin-left: 20px;
+  }
+  
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  header nav ul li a:hover {
+    color: #2baffc; /* Bright blue hover effect */
+  }
+
+  /* Hamburger Menu (Hidden on larger screens) */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  /* Banner Styling */
+  .banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 20px;
+    text-align: center;
+    color: white;
+    animation: fadeIn 1.5s ease;
+  }
+  
+  .banner p {
+    margin-right: 15px;
+  }
+  
+  .banner a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 0px 5px;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  .banner a:hover {
+    background-color: white;
+    color: #000000; /* Bright blue hover effect */
+    transform: translateY(-5px);
+  }
+  
+  /* Hero Section */
+  .hero {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 100px 20px;
+    animation: slideUp 1s ease;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .hero .cta-btn {
+    background-color: #fff;
+    color: #333;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border: #000000 solid;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .hero .cta-btn:hover {
+    background-color: #000000; /* Green hover effect */
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  /* Timeline Section */
+  .timeline {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+    z-index: 0;
+  }
+  
+  .timeline h2 {
+    margin-top: 50px;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #010101; /* Dark color for headings */
+  }
+  
+  /* Timeline Container */
+  #timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  /* Timeline Item */
+  .timeline-item {
+    background-color: #e4e4e4; /* Light background */
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Adjust based on your design */
+    word-wrap: break-word; /* Prevent text from overflowing */
+    word-break: break-word; /* Break long words if necessary */
+    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; /* Allow absolute positioning of lock icon */
+}
+  
+  .timeline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .timeline-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #000000; /* Bright blue for item headings */
+  }
+  
+  /* Timeline Item Buttons */
+  .timeline-item button {
+    padding: 10px;
+    border: none;
+    margin-bottom: 10px;
+    border: #000000 solid;
+    background-color: #ffffff; /* Green buttons */
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .timeline-item button:hover {
+    font-weight: 600;
+    background-color: #000000; /* Darker green on hover */
+    color: #fff;
+  }
+  
+  /* Apply blur effect if no value in Column D */
+.timeline-item.locked::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight white overlay to create blur effect */
+    filter: blur(2px);
+    z-index: 1; /* Apply blur effect below content */
+}
+
+/* Lock Icon Styling */
+.timeline-item .lock-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #d9534f; /* Red color for the lock icon */
+    z-index: 2; /* Ensure the lock icon is above the blurred content */
+}
+/* Popup styling */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;  /* Vertically and horizontally center the popup */
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup content box styling */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;  /* Adjust width as needed */
+    max-width: 600px;  /* Set a maximum width for larger screens */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional: adds shadow for a 3D effect */
+    overflow-y: auto;
+    position: relative; /* Make the content container a positioned parent for the close button */
+}
+
+/* Close button style */
+.popup-close {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.popup-close:hover {
+    color: red;
+}
+
+  /* Footer */
+  footer {
+    background-color: #010101; /* Dark footer */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+    animation: fadeInUp 1s ease;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        background-color: #ffffff;
+        width: 100%;
+        padding: 20px;
+      }
+    
+      header nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+    
+      header nav ul li a {
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+      }
+    
+      .hamburger {
+        display: block;
+      }
+    
+      header nav ul.show {
+        display: flex;
+      }
+    }
+
+    #timeline-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .timeline-item {
+      padding: 10px;
+    }
+  
+    .timeline-item button {
+      font-size: 12px;
+    }
+  
+    .hero-content {
+      padding: 0 30px;
+    }
+  
+    .hero h1 {
+      font-size: 36px;
+    }
+  
+    .hero p {
+      font-size: 18px;
+    }
+  
+    .hero .cta-btn {
+      font-size: 18px;
+    }
+  
+    .button-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .popup-content {
+        width: 90%;  /* Make the popup content wider on small screens */
+    }
+  
+  /* Animations */
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
