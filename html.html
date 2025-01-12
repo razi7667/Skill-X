@@ -6,11 +6,13 @@
     <title>Online Course Timeline</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="access-popup.css">
     <script src="script.js" defer></script>
+    <script src="html-access-code.js" defer></script>
 </head>
 <body class="course-body">
     <!-- Header -->
-    <header>
+    <header class="header-bar">
         <div class="logo">Skill-X</div>
         <nav>
             <ul>
@@ -32,8 +34,22 @@
         </nav>
       <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
       </header>
+
+<div class="access-popup">
+  <div class="popup-content-access">
+    <h2>Enter Access Code</h2>
+    <div class="input-wrapper">
+      <input type="text" id="access-code" placeholder="Access Code">
+    </div>
+    <button id="confirm-access">Enter</button>
+    <p id="error-message" class="error"></p>
+  </div>
+</div>
+
+      
+
     <!-- Timeline Section -->
-    <section class="timeline">
+    <section class="timeline" style="visibility: hidden;">
     <h2>Course Timeline</h2>
     <div id="timeline-container" class="timeline-container">
       <!-- Timeline content dynamically fetched from Google Sheets will go here -->
