@@ -42,7 +42,7 @@ function toggleMenu() {
     const popupDescription = document.getElementById('popup-description');
 
     const spreadsheetId = '1JkQ4-7lhhVTiyCjgmiQBiQdO4_Wt8jvUxUb6qms33UU'; // Replace with your spreadsheet ID
-    const range = 'Sheet1!A:E'; // Fetching Columns A to E
+    const range = 'Sheet1!A:F'; // Fetching Columns A to F
     const apiKey = 'AIzaSyAGqSnXJyXoDzocRwTOyMAoX5CXgtbz2DA'; // Replace with your API key
     const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
 
@@ -59,7 +59,8 @@ function toggleMenu() {
                 const description = row[1] || 'No Description'; // Column B (Description)
                 const taskLink = row[2]; // Column C (Task Button)
                 const submitLink = row[3]; // Column D (Submit Button)
-                const lockStatus = row[4]; // Column E (Lock Status)
+                const notesLink = row[4]; // Column E (Notes Button)
+                const lockStatus = row[5]; // Column F (Lock Status)
 
                 // Check if the lock status is empty
                 if (!lockStatus) {
@@ -73,6 +74,9 @@ function toggleMenu() {
                 }
                 if (submitLink) {
                     buttonsHTML += `<button class="submit-btn" data-link="${submitLink}">Submit</button>`;
+                }
+                if (notesLink) {
+                    buttonsHTML += `<button class="notes-btn" data-link="${notesLink}">Notes</button>`;
                 }
 
                 // Add the buttons only if there is at least one valid link
@@ -110,6 +114,16 @@ function toggleMenu() {
                     }
                 });
             });
+
+            // Add event listeners for notes buttons
+            document.querySelectorAll('.notes-btn').forEach(button => {
+                button.addEventListener('click', function (event) {
+                    const link = event.target.getAttribute('data-link');
+                    if (link) {
+                        openLinkInNewTab(link);
+                    }
+                });
+            });
         })
         .catch(error => console.error('Error fetching data from Google Sheets:', error));
 
@@ -137,3 +151,4 @@ function toggleMenu() {
         window.open(url, '_blank');
     }
 });
+
